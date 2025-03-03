@@ -1,0 +1,105 @@
+#include <stdio.h>
+#define MAX 100
+int stack[MAX], top1 = -1, top2 = MAX;
+
+int isStack1Empty()
+{
+    return (top1 == -1) ? 1 : 0;
+}
+int isStack2Empty()
+{
+    return (top2 == MAX) ? 1 : 0;
+}
+int isStack1Full()
+{
+    return (top1 == top2 - 1) ? 1 : 0;
+}
+int isStack2Full()
+{
+    return (top2 == top1 + 1) ? 1 : 0;
+}
+
+void push_stack1(int data)
+{
+    if(isStack1Full())
+      printf("Stack1 overflow!!!");
+
+    else
+    {
+        stack[++top1] = data;
+        printf("Element added!!!\n");
+    }
+}
+void push_stack2(int data)
+{
+    if(isStack2Full()) 
+     printf("Stack2 overflow!!!");
+
+    else
+    {
+        stack[--top2] = data;
+        printf("Element added!!!\n");
+    }
+}
+void pop_stack1()
+{
+    if(isstack1empty()){
+        printf("stack underflow!!!\n");
+    }
+    else{
+        int val=stack[top1--];
+        printf("%d pop from  stack1\n",val);
+    }
+}
+void pop_stack2()
+{
+    if(isstack2empty()){
+        printf("stack underflow!!!\n");
+    }
+    else{
+        int val=stack[top2++];
+        printf("%d pop from  stack2\n",val);
+    }
+}
+void peek_stack1()
+{
+    if(isstack1empty()){
+        printf("stack is empty!!!\n");}
+    else{
+    printf("top element of stack 1 is %d\n",stack[top1]);
+    }
+}
+void peek_stack2()
+{
+    if(isstack2empty()){
+        printf("stack is empty!!!\n");}
+    else{
+        printf("top element of stack 1 is %d\n",stack[top1]);
+    }
+}
+void show(){
+    if(isstack1empty())
+    printf("stack is empty!!!\n");
+    else{
+        printf("stack1 elements are:\n");
+        int i;
+        for(i=top1;i>=0;i--){
+            printf("%d\n",stack1[i]);
+        }
+    }
+}
+void show(){
+    if(isstack2empty())
+    printf("stack is empty!!!\n");
+    else{
+        printf("stack elements are:\n");
+        int i;
+        for(i=top;i>=0;i--){
+            printf("%d\n",stack[i]);
+        }
+    }
+}
+int main(){
+ 
+    return 0;
+}
