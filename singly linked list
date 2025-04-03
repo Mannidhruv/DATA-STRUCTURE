@@ -124,7 +124,22 @@ void search(int target){
     }
     temp=temp->next;
 }
+printf("not found\n");
 }
+}
+void sort(){
+    Node *last=NULL;
+    for(Node* i=head;i->next!=NULL;i=i->next){
+        Node *j;
+        for(Node* j=head;j->next!=NULL;j=j->next){
+            if(j->data>j->next->data){
+                int temp=j->data;
+                j->data=j->next->data;
+                j->next->data=temp;
+            }
+        }
+        last = j;
+    }
 }
 void display(){
 if(head==NULL)
@@ -185,9 +200,12 @@ scanf("%d",&pos);
 deleteNodeFromAnyPos(pos);
 break;
 case 7:
-search(target);
+printf("enter value:");
+scanf("%d",&value);
+search(value);
 break;
 case 8:
+sort();
 break;
 case 9:
 display();
